@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/users';
 
 const UserCard = props => {
-  // console.log(props);
   const {avatar, user, selectedUser, dispatch} = props;
   return (
     <label className="user-radio d-flex" htmlFor={user.id}>
@@ -24,5 +24,12 @@ const UserCard = props => {
     </label>
   )
 }
+
+UserCard.proptypes = {
+  avatar: PropTypes.string.isRequired,
+  user: PropTypes.shape({}).isRequired,
+  selectedUser: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 export default connect()(UserCard)

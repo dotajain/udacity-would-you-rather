@@ -13,4 +13,5 @@ export const getUsers = () => dispatch => {
 
 export const setUser = user => dispatch => {
   dispatch({ type: types.SELECTED_USER, user: user });
+  dispatch(hideLoading());
 }

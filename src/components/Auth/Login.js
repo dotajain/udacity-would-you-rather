@@ -34,7 +34,6 @@ const Login = (props) => {
     login({selectedUser: selectedUser.id, username, password })
   }
 
-
   return (
     <div className="login">
       <div className="content-center">

@@ -6,6 +6,8 @@ const auth = (state = {}, action) => {
       return { ...state, id: action.id, error: false }
     case types.LOGIN_FAILURE:
       return { ...state, error: true, id: '' }
+    case types.LOGOUT:
+      return { ...state, id: '', error: false }
     default:
       return state
   }

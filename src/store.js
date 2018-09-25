@@ -3,6 +3,8 @@ import thunk from 'redux-thunk'
 import throttle from 'lodash/throttle'
 import { createLogger } from 'redux-logger'
 import rootReducer from './reducers'
+import { loginWithToken } from './actions/auth'
+import { saveState, loadState } from './utils/localstorage'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -16,7 +18,9 @@ const loggerMiddleware = createLogger({
 
 export const store = createStore(
   rootReducer,
+  loadState(),
   composeEnhancers(applyMiddleware(...middleWare)),
 )
 
-store.subscribe(throttle(() => store.getState(), 1000))
+store.subscribe(throttle(() => saveState(store.getState()), 1000))
+store.dispatch(loginWithToken())

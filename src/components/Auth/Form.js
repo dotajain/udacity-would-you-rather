@@ -24,8 +24,7 @@ const Form = ({ disabled, onSubmit }) => (
       required
     />
     <div className="login-form-footer d-flex justify-content-between pt-3">
-      <button className="btn btn-link p-0">Create Account</button>
-      <button className="btn btn-primary" type="submit" >Sign In</button>
+      <button className="btn btn-primary btn-block" type="submit" >Sign In</button>
     </div>
   </form>
 );
