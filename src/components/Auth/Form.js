@@ -1,16 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-const LoginForm = (props) => (
-  <form className="login-form">
+const Form = ({ disabled, onSubmit }) => (
+  <form className="login-form" onSubmit={onSubmit}>
     <label htmlFor="username" className="sr-only">Email address</label>
-    <input type="text" id="username" className="form-control" placeholder="User Name" required="" autoFocus="" />
+    <input
+      type="text"
+      id="username"
+      className="form-control"
+      placeholder="User Name"
+      disabled={disabled}
+      required
+    />
     <label htmlFor="password" className="sr-only">Password</label>
-    <input type="password" id="password" className="form-control" placeholder="Password" required="" />
+    <input
+      type="password"
+      id="password"
+      className="form-control"
+      placeholder="Password"
+      title="Type a strong password: aBC_123^"
+      pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$"
+      disabled={disabled}
+      required
+    />
     <div className="login-form-footer d-flex justify-content-between pt-3">
       <button className="btn btn-link p-0">Create Account</button>
-      <button className="btn btn-primary">Sign In</button>
+      <button className="btn btn-primary" type="submit" >Sign In</button>
     </div>
   </form>
 );
 
-export default LoginForm;
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
+}
+
+export default Form;

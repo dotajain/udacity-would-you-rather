@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 
 import _ from 'lodash';
@@ -6,8 +7,10 @@ import _ from 'lodash';
 import Form from './Form';
 import UserCard from './UserCard';
 
+import { login } from '../../actions/auth'
+
 const Login = (props) => {
-  const { users, selectedUser} = props;
+  const { users, selectedUser, login, auth} = props;
   let userList;
   if(!_.isEmpty(users)) {
     userList = _.map(users).map(user => {
@@ -24,15 +27,23 @@ const Login = (props) => {
       )
     });
   }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const { username: { value: username }, password: { value: password } } = e.target
+    login({selectedUser: selectedUser.id, username, password })
+  }
+
+
   return (
     <div className="login">
       <div className="content-center">
         <div className="login-card">
           <div className="login-card-left">
             <div className="login-card-header">
-              <h1>Would You Rather</h1>
-              <h2>Sign in</h2>
-              <p>to continue to play</p>
+              
+              <h2>Let me know who you are?</h2>
+              <p>Please select from below list</p>
             </div>
             <div className="login-users">
               {userList}
@@ -40,15 +51,32 @@ const Login = (props) => {
           </div>
           <div className="login-card-right">
             <div className="login-card-header">
-              <h2>Sign in with <span>{selectedUser && selectedUser.name}</span></h2>
-              <p>to continue to play</p>
+            <h1>Would You Rather</h1>
+              <h2>Sign in <span>{!_.isEmpty(selectedUser) && `as ${selectedUser.name}`}</span></h2>
+              {
+                auth.error && 
+                <span className="badge text-danger">Please enter the valid username!</span>
+              }
             </div>
-            <Form />
+            <Form onSubmit={handleSubmit} disabled={_.isEmpty(selectedUser)} />
           </div>
         </div>
       </div>
     </div>
   );
 }
-const mapStateToProps = state => ({users: state.users.all, selectedUser:state.users.selectedUser })
-export default connect(mapStateToProps, {})(Login)
+
+Login.propTypes = {
+  users: PropTypes.shape({}).isRequired,
+  selectedUser: PropTypes.shape({}).isRequired,
+  auth: PropTypes.shape({}).isRequired,
+  login: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state => ({
+  users: state.users.all || {},
+  selectedUser:state.users.selectedUser || {},
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, {login})(Login)
