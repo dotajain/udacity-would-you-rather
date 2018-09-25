@@ -54,7 +54,7 @@ body, input, textarea, select, button {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.login-form input[type="email"] {
+.login-form input[type="text"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -107,14 +107,14 @@ body, input, textarea, select, button {
     padding: 40px;
   }
 .login-card-right {
-  -ms-flex: 0 0 40%;
-  flex: 0 0 40%;
-  max-width: 40%;
+  -ms-flex: 0 0 45%;
+  flex: 0 0 45%;
+  max-width: 45%;
 }
 .login-card-left {
-  -ms-flex: 0 0 60%;
-  flex: 0 0 60%;
-  max-width: 60%;
+  -ms-flex: 0 0 55%;
+  flex: 0 0 55%;
+  max-width: 55%;
 }
 .login-card-header {
   text-align: left;
@@ -147,7 +147,7 @@ body, input, textarea, select, button {
     border-bottom: 1px solid #dcdcdc;
     margin-bottom: 20px;
   }
-  .login-form input[type="email"], .login-form input[type="password"] {
+  .login-form input[type="text"], .login-form input[type="password"] {
     border-radius: 0;
     border-left: 0;
     border-right: 0;

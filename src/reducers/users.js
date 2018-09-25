@@ -2,10 +2,10 @@ import {actionTypes as types} from '../constants'
 
 const users = (state = {}, action) => {
   switch (action.type) {
-    case types.USER_SUCCESS:
-      return action.data
-    case types.USER_FAILURE:
-      return {}
+    case types.GET_USERS:
+      return { ...state, all: action.users }
+    case types.SELECTED_USER:
+      return { ...state, selectedUser: action.user }
     default:
       return state
   }
