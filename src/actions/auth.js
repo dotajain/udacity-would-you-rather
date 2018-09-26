@@ -14,13 +14,14 @@ export const login = ({ selectedUser, username, password }) => dispatch => {
 }
 
 export const loginWithToken = () => (dispatch, getState) => {
+  dispatch(hideLoading());
   const username = getState().auth.id
   if (!username) return
   dispatch({ type: types.LOGIN, id: username });
-  dispatch(hideLoading());
 }
 
 export const logout = () => dispatch => {
+  dispatch(hideLoading());
   dispatch({ type: types.LOGOUT });
   dispatch(setUser(null));
 }

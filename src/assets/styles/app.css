@@ -5,13 +5,16 @@
 body {
   font-size: 14px;
   line-height: 1.4286;
+  letter-spacing: 0.03rem;
 }
 
 body, input, textarea, select, button {
   color: #202124;
   font-family: 'Roboto', sans-serif;
 }
-
+a{ 
+  color: #0052CC;
+}
 .login {
   padding: 40px 15px;
   height: 100vh;
@@ -100,6 +103,49 @@ body, input, textarea, select, button {
 
 .login-card-header {
   text-align: center;
+}
+
+.header {
+  background-color: #fff;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 300;
+  color: #202124;
+  margin: 0;
+  letter-spacing: 0.04rem;
+}
+header nav{
+  margin-left: 60px;
+}
+header nav a {
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.user-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.btn {
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06rem;
+}
+header .user-avatar {
+  margin-left: 10px;
+}
+header .user-details {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .login-card {

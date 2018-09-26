@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-
+import { Redirect } from 'react-router-dom'
 import _ from 'lodash';
 
 import Form from './Form';
@@ -12,6 +12,12 @@ import { login } from '../../actions/auth'
 const Login = (props) => {
   const { users, selectedUser, login, auth} = props;
   let userList;
+  // console.log(props);
+  const { from } = props.location.state || { from: { pathname: '/' } };
+  if(auth.id) {
+    return <Redirect to={from} />
+  }
+
   if(!_.isEmpty(users)) {
     userList = _.map(users).map(user => {
       const avatarUrl = {
@@ -33,6 +39,8 @@ const Login = (props) => {
     const { username: { value: username }, password: { value: password } } = e.target
     login({selectedUser: selectedUser.id, username, password })
   }
+
+  
 
   return (
     <div className="login">
