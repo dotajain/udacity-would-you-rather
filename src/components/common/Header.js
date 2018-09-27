@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
 const Header = ({user, logout}) => (
-  <header className="header">
+  <header className="header mb-4">
     <h1 className="logo">Would you rather</h1>
     <nav>
       <NavLink exact to="/">Home</NavLink>

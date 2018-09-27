@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute';
-import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading-bar';
+
 import { getUsers } from '../actions/users';
+import { getQuestions } from '../actions/questions';
 
 import Login from './Auth/Login';
 
@@ -18,6 +20,7 @@ class App extends Component {
     const { getUsers } = this.props;
     getUsers();
   }
+  
   render () {
     const { auth, loadingBar } = this.props;
     return (
@@ -42,8 +45,9 @@ class App extends Component {
 
 App.propTypes = {
   getUsers: PropTypes.func.isRequired,
+  getQuestions: PropTypes.func.isRequired,
   auth: PropTypes.shape({}).isRequired,
   loadingBar: PropTypes.shape({}).isRequired,
 }
-
-export default withRouter(connect(state => ({ auth: state.auth, loadingBar: state.loadingBar }), { getUsers })(App))
+const mapStateToProps = state => ({ auth: state.auth, loadingBar: state.loadingBar })
+export default withRouter(connect(mapStateToProps, { getUsers, getQuestions })(App))

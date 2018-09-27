@@ -5,28 +5,20 @@ import {
   _saveQuestionAnswer,
 } from './_DATA';
 
-export function getAllUsers() {
-  return _getUsers();
-}
+export const getAllUsers = () => _getUsers()
 
-export function getQuestions() {
-  return _getQuestions();
-}
+export const getAllQuestions = () => _getQuestions()
 
-export function getInitialData() {
+export const getInitialData = () => {
   return Promise.all([
     getAllUsers(),
-    getQuestions(),
+    getAllQuestions(),
   ]).then(([users, questions]) => ({
     users,
     questions,
   }));
 }
 
-export function saveQuestion(question) {
-  return _saveQuestion(question);
-}
+export const saveQuestion = question => _saveQuestion(question)
 
-export function saveQuestionAnswer({ authedUser, qid, answer }) {
-  return _saveQuestionAnswer({ authedUser, qid, answer });
-}
+export const saveQuestionAnswer = ({ authedUser, qid, answer }) => _saveQuestionAnswer({ authedUser, qid, answer })
