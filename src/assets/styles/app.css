@@ -82,6 +82,8 @@ a{
   overflow: hidden;
   background-size: cover;
   display: block;
+  border: 1px solid #607D8B;
+  background-color: #dedede;
 }
 
 .user-radio {
@@ -147,6 +149,169 @@ header .user-details {
   display: flex;
   align-items: center;
 }
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info .user-name {
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+}
+.user-name .asked {
+  display: block;
+}
+.user-name time {
+  /* display: block; */
+  font-size: 12px;
+  color: #848484;
+}
+.user-name .posted-date {
+  display: block;
+  font-size: 12px;
+  color: #848484;
+}
+.card{
+  overflow: hidden;
+}
+.card-body .questions {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.card-body .questions:after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background-color: #dcdcdc;
+}
+.question-option {
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding: 0;
+  overflow: hidden;
+}
+.u-q .question-option, .u-q .question-option * {
+  cursor: pointer;
+}
+.answered-options{
+  padding: 1.25rem;
+}
+.answered-options .check {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 6px;
+  transform: translateY(-50%);
+  border: 1px solid #74b9b9;
+}
+.answered-options .check  svg {
+  fill: #0aadad;
+}
+.select-options .question-option:first-child{
+  border-bottom: 1px solid rgba(0,123,255,.5);
+}
+
+.questions .question-option {
+  padding: 1.25rem;
+}
+
+.custom-radio {
+  position: relative;
+  cursor: pointer;
+  padding: 1.25rem;
+}
+.custom-radio:after, .custom-radio:before {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  
+  
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .3s ease;
+}
+
+.custom-radio:before {
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  width: 20px;
+  height: 20px;
+  right: 20px;
+}
+
+.custom-radio:after {
+  height: 10px;
+  width: 10px;
+  background-color:rgba(0, 0, 0, 0.54);
+  opacity: 0;
+  right: 25px;
+}
+.custom-radio label{
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  margin: 0;
+}
+.custom-radio:hover {
+  background-color:rgba(213, 231, 251, 0.5);
+}
+.question-option.active {
+  background: #d4ecec;
+}
+.question-option:hover .custom-radio:after, .question-option.active .custom-radio:after{
+  background-color:#018786;
+  opacity: 1;
+}
+
+.question-option:hover .custom-radio:before, .question-option.active .custom-radio:before{
+  border-color:#018786;
+}
+
+.a-q .question-option:not(.active) .custom-radio:after, .a-q .question-option:not(.active) .custom-radio:before {
+  display: none;
+}
+
+.question-option input[type="radio"] {
+  position: relative;
+  left: -1000px;
+  top: -1000px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+.question-option .badge {
+  margin-right: 3px;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-body h5 {
+  padding: 1.25rem 1.25rem 0;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .login-card {
     display: flex;
