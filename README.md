@@ -20,6 +20,7 @@ A new browser window should automatically open displaying the app.  If it doesn'
 * sarahedo
 * tylermcginnis
 * johndoe
+
 Password should be `aBC_123^`
 
 ## Built With
