@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Udacity WYR",
+  "name": "Udacity Would you rather",
   "icons": [
     {
       "src": "favicon.ico",

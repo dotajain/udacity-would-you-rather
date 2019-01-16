@@ -395,3 +395,7 @@ header .user-details {
   font-weight: 200;
   margin-bottom: 60px;
 }
+
+.nav-link.btn {
+	background-color: #dcdcdc;
+}

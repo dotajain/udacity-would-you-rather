@@ -16,6 +16,12 @@ npm start
 
 A new browser window should automatically open displaying the app.  If it doesn't, navigate to [http://localhost:3000/](http://localhost:3000/) in your browser
 
+## Login the App using these users
+* sarahedo
+* tylermcginnis
+* johndoe
+Password should be `aBC_123^`
+
 ## Built With
 
 * [ReactJS](https://reactjs.org/) - The JavaScript framework used
