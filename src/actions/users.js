@@ -16,7 +16,7 @@ export const getUsers = () => dispatch => {
     dispatch(usersAction(res))
   })
 }
-export const getAllUsersData = () => dispatch => {
+export const getUserList = () => dispatch => {
   dispatch(showLoading())
   getAllUsers()
     .then((res, err) => {

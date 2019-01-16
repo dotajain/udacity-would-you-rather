@@ -25,6 +25,13 @@ const QuestionPage = ({
     registerVote(obj)
     history.push('/')
   }
+
+  const optionOneCount = question.optionOne.votes.length
+  const optionTwoCount = question.optionTwo.votes.length
+  const totalVotes = optionOneCount + optionTwoCount
+  const optionOnePercent = parseInt(100 * (optionOneCount / totalVotes), 10)
+  const optionTwoPercent = parseInt(100 - optionOnePercent, 10)
+
   return (
     <div className="col-sm-4 m-auto">
       <h3 className="text-center mb-5">
@@ -47,6 +54,7 @@ const QuestionPage = ({
               qId={question.id}
               qOption="optionOne"
               answered={answered}
+              pollPercent={optionOnePercent}
             />
             <QuestionDetails
               question={question.optionTwo}
@@ -55,6 +63,7 @@ const QuestionPage = ({
               qId={question.id}
               qOption="optionTwo"
               answered={answered}
+              pollPercent={optionTwoPercent}
             />
           </div>
         </div>

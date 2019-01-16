@@ -6,7 +6,6 @@ import _ from 'lodash'
 // import UserCard from '../Auth/UserCard';
 
 const LeadBoard = ({ leader }) => {
-  console.log(leader)
   const userList = _.map(leader).map(user => {
     const avatarUrl = {
       backgroundImage: `url("${user.avatarURL}")`,

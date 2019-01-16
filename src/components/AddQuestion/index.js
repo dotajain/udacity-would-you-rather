@@ -50,7 +50,7 @@ class AddQuestion extends Component {
       <div className="container">
         <div className="text-center">
           <h2>Add a New Question</h2>
-          <p>Would You Rather</p>
+          <h4 className="mb-5">Would You Rather</h4>
         </div>
         <form onSubmit={this.handleSubmit} autoComplete="off">
           <div className="form-row mb-4">

@@ -10,6 +10,7 @@ const QuestionDetails = ({
   users,
   qId,
   qOption,
+  pollPercent,
 }) => {
   const voteUser = question.votes.map((user, i) => (
     <span
@@ -28,6 +29,22 @@ const QuestionDetails = ({
       </svg>
     </span>
   )
+
+  const renderPollPercent = (
+    <div className="progress">
+      <div
+        className="progress-bar"
+        role="progressbar"
+        style={{ width: `${pollPercent}%` }}
+        aria-valuenow={pollPercent}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        {pollPercent}%
+      </div>
+    </div>
+  )
+
   return (
     <div
       className={`question-option ${
@@ -35,6 +52,7 @@ const QuestionDetails = ({
       }`}
     >
       <div className={answered ? 'answered-options' : 'custom-radio'}>
+        {answered && renderPollPercent}
         <label htmlFor={`${qOption}_${qId}`}>
           {!answered && (
             <input
@@ -48,7 +66,9 @@ const QuestionDetails = ({
               }
             />
           )}
-          <div className="question-text">{question.text}</div>
+          <div className="question-text">
+            Would you rather <strong>{question.text}</strong>
+          </div>
           {question.votes.length > 0 && (
             <div className="vote-by">{voteUser}</div>
           )}
@@ -67,6 +87,7 @@ QuestionDetails.propTypes = {
   question: PropTypes.shape({}).isRequired,
   users: PropTypes.shape({}).isRequired,
   answered: PropTypes.bool,
+  pollPercent: PropTypes.number,
 }
 const mapStateToProps = state => ({
   users: state.users.all,

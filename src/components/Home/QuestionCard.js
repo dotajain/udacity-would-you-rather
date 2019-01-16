@@ -25,7 +25,9 @@ const QuestionCard = ({ question, users, userId, answered }) => {
         option.votes.includes(userId) ? 'active' : ''
       }`}
     >
-      <div className="question-text">{option.text}</div>
+      <div className="question-text">
+        Would you rather <strong>{option.text}</strong>
+      </div>
       {!_.isEmpty(option.votes) && (
         <div className="vote-by">{renderVoteUser(option.votes)}</div>
       )}
@@ -48,7 +50,7 @@ const QuestionCard = ({ question, users, userId, answered }) => {
         </div>
       </div>
       <div className="card-footer">
-        <Link to={`/question/${question.id}`} className="vote-question">
+        <Link to={`/questions/${question.id}`} className="vote-question">
           {answered ? 'View Details' : 'Vote'}
         </Link>
       </div>
